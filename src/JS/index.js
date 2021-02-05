@@ -1,16 +1,15 @@
-function addTask() {
+// Task properties
 
-    //Tomar value y limpiar input
-    const task = document.querySelector("#task").value;
-    document.querySelector("#task").value = "";
-    
-    console.log(task);
+function Task(id, description, button, completed) {
 
-
-
-
+    this.id = id;
+    this.description = description;
+    this.button = button;
+    this.completed = completed;
 }
 
+
+// Functions
 
 function makeUI() {
 
