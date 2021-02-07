@@ -1,6 +1,6 @@
 // Task properties
 
-function Task(id, description, button, completed) {
+function Task(id, description, completed) {
 
     this.id = id;
     this.description = description;
