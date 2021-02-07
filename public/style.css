@@ -1,0 +1,58 @@
+body { 
+    margin-top: 30px;
+    font-family: "Gill Sans Extrabold", Helvetica, sans-serif; 
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to right, rgb(233, 151, 0) , rgba(0, 47, 255, 0.575));
+}
+
+button{
+    border-radius: 0.5em;
+    font-family: "Gill Sans Extrabold", Helvetica, sans-serif;
+    margin-left: 5px;
+    background-color: rgb(26, 153, 26);
+    color: whitesmoke;
+}
+
+button:hover{
+    box-shadow: 0 1px 6px rgba(9, 14, 32, 0.28);
+    border-color: rgba(218, 82, 82, 0);
+}
+
+.underlineTask{
+    text-decoration: line-through; 
+    text-decoration-color: rgb(6, 168, 6);
+}
+
+.deleteBtn{
+    border-radius: 2em; 
+    background-color: #a00000; 
+    color: white; 
+    width: 60px;
+    border-color: rgb(63, 0, 0);
+}
+
+input{
+    border-color: rgb(88, 147, 235);
+    border-radius: 2em; 
+}
+
+input:focus {
+    border-color: rgb(88, 147, 235);
+    border-radius: 2em;
+    outline: none;
+}
+
+input:active {
+    border-color: rgb(88, 147, 235);
+    border-radius: 2em;
+    outline: none;
+}
+
+input:hover{
+    box-shadow: 0 1px 6px rgba(9, 14, 32, 0.28);
+    border-color: rgba(218, 82, 82, 0);
+}
+p{
+    padding-left: 15%;
+}
