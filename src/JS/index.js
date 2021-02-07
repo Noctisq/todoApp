@@ -4,7 +4,6 @@ function Task(id, description, button, completed) {
 
     this.id = id;
     this.description = description;
-    this.button = button;
     this.completed = completed;
 }
 
