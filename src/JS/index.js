@@ -26,9 +26,9 @@ function printTasks(tasks) {
     tasks.forEach(task => {
         console.log(task)
         if (task.completed) {
-            document.querySelector("#taskDiv").innerHTML += `<p id = "#task${task.id}" style = "text-decoration: line-through"> <input type="checkbox" class = "check" checked>${task.desc} <button class = "Delete">delete</button></p>`;
+            document.querySelector("#taskDiv").innerHTML += `<div><p id = "#task${task.id}" style = "text-decoration: line-through"> <input type="checkbox" class = "check" checked>${task.desc} <button class = "Delete">delete</button></p></div>`;
         } else {
-            document.querySelector("#taskDiv").innerHTML += `<p id = "#task${task.id}"> <input type="checkbox" class = "check" >${task.desc} <button class = "Delete">delete</button></p>`;
+            document.querySelector("#taskDiv").innerHTML += `<div><p id = "#task${task.id}"> <input type="checkbox" class = "check" >${task.desc} <button class = "Delete">delete</button></p></div>`;
         }
 
 
