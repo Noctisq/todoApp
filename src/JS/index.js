@@ -1,3 +1,4 @@
+
 // Task prototype 
 
 function Task(id, desc, completed) {
@@ -59,6 +60,7 @@ function addTask() {
 
 }
 
+
 function deleteTask(btn) {
     console.log(btn.srcElement.parentNode.id);
     const tasks = getTasks();
@@ -66,8 +68,31 @@ function deleteTask(btn) {
     console.log(filteredTasks);
     updateTasks(filteredTasks);
 
+// Function Update Tasks
+function updateTasks(newTasks) {
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
+    printTasks(newTasks);
 }
 
+// Function Print Tasks
+function printTasks(tasks) {
+    document.querySelector("#taskDiv").innerHTML = "";
+    tasks.forEach(task => {
+        console.log(task)
+        if (task.completed) {
+            document.querySelector("#taskDiv").innerHTML += `<p id = "#task${task.id}" style = "text-decoration: line-through"> <input type="checkbox" class = "check" checked>${task.description} <button class = "Delete">delete</button></p>`;
+        } else {
+            document.querySelector("#taskDiv").innerHTML += `<p id = "#task${task.id}"> <input type="checkbox" class = "check" >${task.description} <button class = "Delete">delete</button></p>`;
+        }
+    });
+
+    document.querySelectorAll(".Delete").forEach(btn => {
+        btn.addEventListener('click', deleteTask);
+    });
+    document.querySelectorAll(".check").forEach(input => {
+        input.addEventListener("change", underlineTask)
+    });
+}
 
 function underlineTask(input) {
 
