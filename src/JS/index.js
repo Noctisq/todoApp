@@ -17,6 +17,9 @@ function getTasks() {
 }
 
 function updateTasks(newTasks) {
+    if(newTasks.length == 0 ){
+        localStorage.setItem("tasks", newTasks);
+    }
     localStorage.setItem("tasks", JSON.stringify(newTasks));
     printTasks(newTasks);
 }
@@ -30,7 +33,6 @@ function printTasks(tasks) {
         } else {
             document.querySelector("#taskDiv").innerHTML += `<div><p id = "#task${task.id}"> <input type="checkbox" class = "check" >${task.desc} <button class = "Delete">delete</button></p></div>`;
         }
-
 
     });
 
@@ -89,7 +91,6 @@ function makeUI() {
 
     let tasks = [];
 
-
     // Crear elementos para pintar UI
     const newDiv = document.createElement("div");
     const tasksDiv = document.createElement("div");
@@ -102,6 +103,7 @@ function makeUI() {
     btnApp.textContent = "Add";
     btnApp.id = "add";
     inputTask.id = "task";
+
     newDiv.appendChild(inputTask);
     newDiv.appendChild(btnApp);
     appDiv.appendChild(newDiv);
@@ -116,6 +118,7 @@ function makeUI() {
     } else {
         printTasks(getTasks());
     }
+
 }
 
 
