@@ -1,4 +1,3 @@
-
 // Task prototype 
 
 function Task(id, desc, completed) {
@@ -18,6 +17,9 @@ function getTasks() {
 }
 
 function updateTasks(newTasks) {
+    if(newTasks.length == 0 ){
+        localStorage.setItem("tasks", newTasks);
+    }
     localStorage.setItem("tasks", JSON.stringify(newTasks));
     printTasks(newTasks);
 }
@@ -31,7 +33,6 @@ function printTasks(tasks) {
         } else {
             document.querySelector("#taskDiv").innerHTML += `<div><p id = "#task${task.id}"> <input type="checkbox" class = "check" >${task.desc} <button class = "Delete">delete</button></p></div>`;
         }
-
 
     });
 
@@ -60,7 +61,6 @@ function addTask() {
 
 }
 
-
 function deleteTask(btn) {
     console.log(btn.srcElement.parentNode.id);
     const tasks = getTasks();
@@ -68,31 +68,8 @@ function deleteTask(btn) {
     console.log(filteredTasks);
     updateTasks(filteredTasks);
 
-// Function Update Tasks
-function updateTasks(newTasks) {
-    localStorage.setItem("tasks", JSON.stringify(newTasks));
-    printTasks(newTasks);
 }
 
-// Function Print Tasks
-function printTasks(tasks) {
-    document.querySelector("#taskDiv").innerHTML = "";
-    tasks.forEach(task => {
-        console.log(task)
-        if (task.completed) {
-            document.querySelector("#taskDiv").innerHTML += `<p id = "#task${task.id}" style = "text-decoration: line-through"> <input type="checkbox" class = "check" checked>${task.description} <button class = "Delete">delete</button></p>`;
-        } else {
-            document.querySelector("#taskDiv").innerHTML += `<p id = "#task${task.id}"> <input type="checkbox" class = "check" >${task.description} <button class = "Delete">delete</button></p>`;
-        }
-    });
-
-    document.querySelectorAll(".Delete").forEach(btn => {
-        btn.addEventListener('click', deleteTask);
-    });
-    document.querySelectorAll(".check").forEach(input => {
-        input.addEventListener("change", underlineTask)
-    });
-}
 
 function underlineTask(input) {
 
@@ -114,7 +91,6 @@ function makeUI() {
 
     let tasks = [];
 
-
     // Crear elementos para pintar UI
     const newDiv = document.createElement("div");
     const tasksDiv = document.createElement("div");
@@ -127,6 +103,7 @@ function makeUI() {
     btnApp.textContent = "Add";
     btnApp.id = "add";
     inputTask.id = "task";
+
     newDiv.appendChild(inputTask);
     newDiv.appendChild(btnApp);
     appDiv.appendChild(newDiv);
@@ -141,6 +118,7 @@ function makeUI() {
     } else {
         printTasks(getTasks());
     }
+
 }
 
 
